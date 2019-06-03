@@ -1,0 +1,27 @@
+{
+  "name": "Start on Heroku: Python",
+  "description": "A barebones Python app, which can easily be deployed to Heroku.",
+  "image": "heroku/python",
+  "repository": "https://github.com/heroku/eyec-consulting",
+  "keywords": ["python", "django" ],
+  "addons": [ "heroku-postgresql" ],
+  "env": {
+    "SECRET_KEY": {
+      "description": "The secret key for the Django application.",
+      "generator": "secret"
+    }
+	 "DISABLE_COLLECTSTATIC": {
+		"description": "Don't run python manage.py collectstatic --noinput on deploy",
+		"value": "1"
+	}
+  },
+  "environments": {
+    "test": {
+      "scripts": {
+        "description": "Don't run python manage.py collectstatic --noinput on deploy",
+		"value": "1",
+        "test": "python manage.py test"
+      }
+    }
+  }
+}
