@@ -105,7 +105,7 @@ DATABASES = {
         'USER':config.get('section','DBUSER'),
         'PASSWORD':config.get('section','DBPASSWORD'),
         'HOST':config.get('section','DBHOST'),
-        'PORT':''
+        'PORT':'52727'
     }
 }
 
