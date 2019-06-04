@@ -11,6 +11,7 @@ from django.db import models
 from django.shortcuts import render_to_response
 from django.conf import settings
 from django.core.mail import send_mail
+import requests
 
 # Create your views here.
 
@@ -19,7 +20,6 @@ def main(request):
     if request.method == 'GET':
         return render(request,template)
     form = MessagesForm(request.POST)
-    print(str(form))
     if form.is_valid():
         #if request.POST.get("save"):
         name = form.cleaned_data['firstname']

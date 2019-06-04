@@ -447,42 +447,54 @@
 
 <script type="text/javascript">
 function myFunction() {
-  var firstname=document.forms["Form"]["firstname"].value;
-  var lastname=document.forms["Form"]["lastname"].value;
-  var email=document.forms["Form"]["email"].value;
-  var message=document.forms["Form"]["message"].value;
+    var firstname=document.getElementById("firstname");
+  var lastname=document.getElementById("lastname");
+  var email=document.getElementById("email");
+  var message=document.getElementById("message");
   $('#successMessage').hide();
   $('#dangerMessage').hide();
+  $('#loader').hide();
   //$('#loader').hide();
-    if (firstname==null || firstname==""){
+    if (firstname || firstname.value){
       $('#firstnameMessage').show();
+      $('#loader').hide();
     }else{
       $('#firstnameMessage').hide();
     }
-    if (lastname==null || lastname==""){
+    if (lastname || lastname.value){
       $('#lastnameMessage').show();
+      $('#loader').hide();
     }else{
       $('#lastnameMessage').hide();
     }
-    if (email==null || email==""){
+    if (email || email.value){
       $('#emailMessage').show();
+      $('#loader').hide();
     }else{
       $('#emailMessage').hide();
     }
-    if (message==null || message==""){
+    if (message || message.value){
       $('#msgMessage').show();
+      $('#loader').hide();
     }else{
       $('#msgMessage').hide();
     }
     //var re = /^(([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/igm;
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (email!="" && !re.test(String(email).toLowerCase())){
+    if (email && !re.test(String(email.value).toLowerCase())){
       $('#dangerMessage').show();
+      $('#emailMessage').hide();
+      $('#loader').hide();
       //$('#emailMessage').hide();
     }else{
       $('#dangerMessage').hide();
-      if(firstname!=null || firstname!="" && lastname!=null || lastname!="" && email!=null || email!="" && message!=null || message!=""){
+      if(firstname && firstname.value && lastname && lastname.value && email && email.value && message && message.value){
         $('#loader').show();
+        $('#firstnameMessage').hide();
+        $('#lastnameMessage').hide();
+        $('#emailMessage').hide();
+        $('#dangerMessage').hide();
+        $('#msgMessage').hide();
       }
     }
   }
