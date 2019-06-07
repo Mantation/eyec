@@ -4,5 +4,5 @@ from .import views
 
 app_name = 'account'
 urlpatterns = [
-    path("eyec-consulting/", views.main, name = "main"),
+    path("", views.main, name = "main"),
 ]
