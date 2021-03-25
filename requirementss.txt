@@ -28,7 +28,7 @@ psycopg2-binary==2.8.2
 PyMySQL==0.9.3
 PySocks==1.6.8
 pytz==2018.9
-PyYAML==5.1
+PyYAML==5.4
 requests==2.21.0
 requests-oauthlib==1.2.0
 six==1.12.0
